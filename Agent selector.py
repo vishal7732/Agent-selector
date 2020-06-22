@@ -2,22 +2,23 @@
 import random
 
 def agents():
-	users,names, time = [], [], {}
-	for i in range(5):
-		user = input("Enter Agent Names: ")
-		name = []
-		name.append(user)
-		names.append(user)
+	users = []
+	names = ["Vishal", "Rohit", "Ankit", "Dakshraj", "Harish"]
+	roles = ["teacher","Designer","Tester", "sales", "support"]
+	time = {}
+	for i in names:
+		agent = []
+		agent.append(i)
 		is_available = random.randint(0,1)         # 1 for Agent Available and 0 for agent is busy (so it look like real)
-		name.append(is_available)
+		agent.append(is_available)
 		if is_available == 1:
 			available_since = random.randint(1,60)   # From how much time user is available (so it look like real)
-			name.append(available_since)
-			time[user] = available_since
-		role = input("Enter Agent Role : ")
-		name.append(role)
-		users.append(name)
-
+			agent.append(available_since)
+			time[i] = available_since
+		role = random.choice(roles)
+		agent.append(role)
+		users.append(agent)
+	
 	def modes():
 		mode = input("Select Agent Selection Mode By Typing This Mode Names (all available) (least busy) (random) : ")
 		
@@ -56,4 +57,3 @@ def agents():
 
 
 agents()
-
